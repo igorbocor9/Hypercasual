@@ -1,6 +1,7 @@
 using UnityEngine;
+using Core.Singleton;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     //publics
     [Header("Lerp")]
@@ -16,6 +17,14 @@ public class PlayerController : MonoBehaviour
     //privates
     private bool _canRun;
     private Vector3 _pos;
+    private float _currentSpeed;
+    private Vector3 _startPosition;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+        ResetSpeed();
+    }
 
 
     void Update()
@@ -26,7 +35,7 @@ public class PlayerController : MonoBehaviour
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
 
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+        transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
 
         transform.position = Vector3.Lerp(transform.position, _pos, Time.deltaTime * lerpspeed);
     }
@@ -57,4 +66,23 @@ public class PlayerController : MonoBehaviour
     {
         _canRun = true;
     }
+
+    #region PowerUps
+
+    public void SetPowerUpText(string text)
+    {
+        //uiTextPowerUp.text = text;
+    }
+
+    public void PowerUpSpeedUp(float amount)
+    {
+        _currentSpeed = amount;
+    }
+
+    public void ResetSpeed()
+    {
+        _currentSpeed = speed;
+    }
+
+    #endregion
 }
