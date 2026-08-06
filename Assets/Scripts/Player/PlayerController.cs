@@ -1,5 +1,9 @@
 using UnityEngine;
 using Core.Singleton;
+using TMPro;
+using UnityEngine.UI;
+using System.Collections;
+using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -13,6 +17,9 @@ public class PlayerController : Singleton<PlayerController>
     public string TagToCheckEndLine = "EndLine";
 
     public GameObject Endscreen;
+
+    [Header("TextMeshPro")]
+    public TextMeshPro uiTextPowerUp;
 
     public bool invincible = false;
 
@@ -79,7 +86,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void SetPowerUpText(string text)
     {
-        //uiTextPowerUp.text = text;
+        uiTextPowerUp.text = text;
     }
 
     public void PowerUpSpeedUp(float amount)
@@ -95,6 +102,21 @@ public class PlayerController : Singleton<PlayerController>
     public void SetInvincible(bool value = true)
     {
         invincible = value;
+    }
+
+    public void ChangeHeight(float amount, float duration, float animationDuration, Ease ease)
+    {
+        /*var p = transform.position;
+        p.y = _startPosition.y + amount;
+        transform.position = p;*/
+
+        transform.DOMoveY(_startPosition.y + amount, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), duration);
+    }
+
+    public void ResetHeight(float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y, animationDuration).SetEase(ease);
     }
 
     #endregion
