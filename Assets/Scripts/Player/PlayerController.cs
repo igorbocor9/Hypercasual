@@ -3,6 +3,7 @@ using Core.Singleton;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
@@ -17,6 +18,9 @@ public class PlayerController : Singleton<PlayerController>
     public string TagToCheckEndLine = "EndLine";
 
     public GameObject Endscreen;
+
+    [Header("Coin setup")]
+    public GameObject coinCollector;
 
     [Header("TextMeshPro")]
     public TextMeshPro uiTextPowerUp;
@@ -117,6 +121,11 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight(float animationDuration, Ease ease)
     {
         transform.DOMoveY(_startPosition.y, animationDuration).SetEase(ease);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
     }
 
     #endregion

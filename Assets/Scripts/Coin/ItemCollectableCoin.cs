@@ -2,14 +2,40 @@ using UnityEngine;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
-    public Collider2D collider2D;
+    public Collider collider;
+    public bool collect = false;
+    public float lerp = 5f;
+    public float minDistance = 1f;
+
+    private void Start()
+    {
+        CoinsAnimationManager.Instance.RegisterCoin(this);
+    }
 
     protected override void OnCollect()
     {
         base.OnCollect();
-        ItemManager.Instance.AddCoins();
-        collider2D.enabled = false;
+        collider.enabled = false;
+        collect = true;
+        GetComponent<Collider2D>().enabled = false;
     }
 
-    
+    protected override void Collect()
+    {
+        OnCollect();
+    }
+
+    private void Update()
+    {
+        if (collect)
+        {
+            if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
+            {
+                HideItems();
+                Destroy(gameObject);
+            }
+
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, Time.deltaTime * lerp);
+        }
+    }
 }
