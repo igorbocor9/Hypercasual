@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
@@ -9,7 +11,6 @@ public class ItemCollectableCoin : ItemCollectableBase
 
     private void Start()
     {
-        CoinsAnimationManager.Instance.RegisterCoin(this);
     }
 
     protected override void OnCollect()
@@ -17,8 +18,8 @@ public class ItemCollectableCoin : ItemCollectableBase
         base.OnCollect();
         collider.enabled = false;
         collect = true;
-        GetComponent<Collider2D>().enabled = false;
     }
+
 
     protected override void Collect()
     {
@@ -29,13 +30,15 @@ public class ItemCollectableCoin : ItemCollectableBase
     {
         if (collect)
         {
+
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, Time.deltaTime * lerp);
+
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
             {
-                HideItems();
                 Destroy(gameObject);
             }
 
-            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, Time.deltaTime * lerp);
+            
         }
     }
 }

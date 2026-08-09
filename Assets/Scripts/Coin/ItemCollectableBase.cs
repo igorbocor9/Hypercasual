@@ -32,6 +32,7 @@ public class ItemCollectableBase : MonoBehaviour
         {
             graphicItem.SetActive(false);
         }
+        
         Invoke("HideObject", timeToHide);
         OnCollect();
     }
