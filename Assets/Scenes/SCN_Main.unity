@@ -2755,6 +2755,7 @@ MonoBehaviour:
   Endscreen: {fileID: 1981593362}
   coinCollector: {fileID: 586018128}
   uiTextPowerUp: {fileID: 403189402}
+  animatorManager: {fileID: 1816012406}
   invincible: 0
 --- !u!1 &1317803856
 GameObject:
@@ -3289,6 +3290,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
   m_PrefabInstance: {fileID: 356090612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1816012406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8688886331769529964, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 356090612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfff233301c8f2846a5f0d120f1dc019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorManager
 --- !u!1 &1981593362
 GameObject:
   m_ObjectHideFlags: 0
