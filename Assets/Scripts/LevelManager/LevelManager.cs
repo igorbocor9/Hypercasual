@@ -37,6 +37,14 @@ public class LevelManager : MonoBehaviour
         _currentLevel.transform.localPosition = Vector3.zero;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnNextLevel();
+        }
+    }
+
     void ResetLevelIndex()
     {
         _index = 0;
