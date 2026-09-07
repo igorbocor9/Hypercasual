@@ -905,6 +905,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38ee9e01e4ac5294690e2d7ac7b190a3, type: 2}
   timeBetweenPieces: 0.3
   _index: 0
+  _spawnedPieces: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
 --- !u!4 &379666529
 Transform:
   m_ObjectHideFlags: 0
