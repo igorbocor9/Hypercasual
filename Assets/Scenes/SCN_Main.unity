@@ -1934,6 +1934,7 @@ GameObject:
   - component: {fileID: 1283210295}
   - component: {fileID: 1283210300}
   - component: {fileID: 1283210301}
+  - component: {fileID: 1283210302}
   m_Layer: 0
   m_Name: PlayerContainer
   m_TagString: Player
@@ -2099,7 +2100,26 @@ MonoBehaviour:
   coinCollector: {fileID: 586018128}
   uiTextPowerUp: {fileID: 403189402}
   animatorManager: {fileID: 1816012406}
+  scaleDuration: 0.2
+  scaleBounce: 1
+  ease: 27
+  _bounceHelper: {fileID: 1283210302}
   invincible: 0
+--- !u!114 &1283210302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283210294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff43171b89c0844f8a1ec6b8b2718f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BounceHelper
+  scaleDuration: 0.08
+  scaleBounce: 1.2
+  ease: 27
 --- !u!1 &1317803856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,6 +2444,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1670236238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670236240}
+  - component: {fileID: 1670236239}
+  m_Layer: 0
+  m_Name: CoinAnimator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1670236239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670236238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a78ff6373c668240af4d0dd34b24c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinsAnimationManager
+  itens: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
+--- !u!4 &1670236240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670236238}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.99, y: 0, z: -18.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739670121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,3 +2932,4 @@ SceneRoots:
   - {fileID: 379666529}
   - {fileID: 950903895}
   - {fileID: 486431671}
+  - {fileID: 1670236240}

@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //SpawnNextLevel();
+       // SpawnNextLevel();
         CreateLevelPieces();
     }
 
@@ -48,7 +48,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpawnNextLevel();
+            //SpawnNextLevel();
             CreateLevelPieces();
         }
     }
@@ -94,6 +94,8 @@ public class LevelManager : MonoBehaviour
         ColorManager.Instance.ChangeColorByType(_currSetup.artType);
 
         StartCoroutine(ScalePiecesByTime());
+
+        
     }
 
     private IEnumerator ScalePiecesByTime()
@@ -110,6 +112,8 @@ public class LevelManager : MonoBehaviour
             _spawnedPieces[i].transform.DOScale(1, scaleDuration).SetEase(ease);
             yield return new WaitForSeconds(scaleTimeBetweenPieces);
         }
+
+        CoinsAnimationManager.Instance.StartAnimation();
     }
 
     private void CreateLevelPiece(List<LevelPieceBase> list)
@@ -143,6 +147,8 @@ public class LevelManager : MonoBehaviour
         }
 
         _spawnedPieces.Clear();
+        CoinsAnimationManager.Instance.itens.Clear();
+
     }
 
     IEnumerator CreateLevelPiecesCoroutine()

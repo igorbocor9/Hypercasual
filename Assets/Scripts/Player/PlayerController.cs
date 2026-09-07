@@ -19,6 +19,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public GameObject Endscreen;
 
+
     [Header("Coin setup")]
     public GameObject coinCollector;
 
@@ -27,6 +28,11 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Animation")]
     public AnimatorManager animatorManager;
+    public float scaleDuration = 1f;
+    public float scaleBounce = 1f;
+    public Ease ease = Ease.OutBack;
+
+    [SerializeField] private BounceHelper _bounceHelper;
 
     public bool invincible = false;
 
@@ -39,10 +45,18 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Start()
     {
+        transform.localScale = Vector3.zero;
         _startPosition = transform.position;
         ResetSpeed();
     }
 
+    public void Bounce()
+    {
+        if (_bounceHelper != null)
+        {
+            _bounceHelper.Bounce();
+        }
+    }
 
     void Update()
     {
@@ -94,6 +108,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void StartRun()
     {
+        transform.DOScale(scaleBounce, scaleDuration).SetEase(ease);
         _canRun = true;
         animatorManager.Play(AnimatorManager.AnimatorType.RUN, _currentSpeed / _baseSpeedToAnimation);
     }

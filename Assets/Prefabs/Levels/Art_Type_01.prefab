@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 6677968104277576090}
   - component: {fileID: 7354191653757820534}
   - component: {fileID: 7657516145841941375}
+  - component: {fileID: 2535134908417718603}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -158,3 +159,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2535134908417718603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789253040998803445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe69a96faba593144931bf4dcff626bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChange
+  duration: 1
+  meshRenderer: {fileID: 7354191653757820534}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  _correctColor: {r: 0, g: 0, b: 0, a: 0}

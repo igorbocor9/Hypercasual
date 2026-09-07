@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4409765186385465709}
   - component: {fileID: 5594647607033544049}
   - component: {fileID: 8409107564833307012}
+  - component: {fileID: 8067283209550561400}
   m_Layer: 0
   m_Name: PFB_EndLine
   m_TagString: Enemy
@@ -112,3 +113,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8067283209550561400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139513211521211876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe69a96faba593144931bf4dcff626bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorChange
+  duration: 1
+  meshRenderer: {fileID: 5594647607033544049}
+  startColor: {r: 1, g: 1, b: 1, a: 1}
+  _correctColor: {r: 0, g: 0, b: 0, a: 0}
