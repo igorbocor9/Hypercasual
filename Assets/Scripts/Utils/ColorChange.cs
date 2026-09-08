@@ -19,13 +19,13 @@ public class ColorChange : MonoBehaviour
 
     private void Start()
     {
-        _correctColor = meshRenderer.materials[0].GetColor("_Color");
+        _correctColor = meshRenderer.materials[0].GetColor("_BaseColor");
         LerpColor();
     }
 
     private void LerpColor()
     {
-        meshRenderer.materials[0].SetColor("_Color", startColor);
+        meshRenderer.materials[0].SetColor("_BaseColor", startColor);
         meshRenderer.materials[0].DOColor(_correctColor, duration).SetDelay(0.5f);
     }
 
