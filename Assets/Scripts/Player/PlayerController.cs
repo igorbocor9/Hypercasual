@@ -32,7 +32,12 @@ public class PlayerController : Singleton<PlayerController>
     public float scaleBounce = 1f;
     public Ease ease = Ease.OutBack;
 
+    [Header("VFX")]
     public ParticleSystem VFXDeath;
+
+    [Header("Limits")]
+    public float limit = 4;
+    public Vector2 limitVector = new Vector2(-4, 4);
 
     [SerializeField] private BounceHelper _bounceHelper;
 
@@ -67,6 +72,15 @@ public class PlayerController : Singleton<PlayerController>
         _pos = target.position;
         _pos.y = transform.position.y;
         _pos.z = transform.position.z;
+
+        if (_pos.x < limitVector.x)
+        {
+            _pos.x = limitVector.x;
+        }
+        else if (_pos.x > limitVector.y)
+        {
+            _pos.x = limitVector.y;
+        }
 
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
 

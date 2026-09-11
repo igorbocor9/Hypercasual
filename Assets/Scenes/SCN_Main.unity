@@ -2116,6 +2116,8 @@ MonoBehaviour:
   scaleBounce: 1
   ease: 27
   VFXDeath: {fileID: 265790740}
+  limit: 4
+  limitVector: {x: -4, y: 4}
   _bounceHelper: {fileID: 1283210302}
   invincible: 0
 --- !u!114 &1283210302
