@@ -32,6 +32,8 @@ public class PlayerController : Singleton<PlayerController>
     public float scaleBounce = 1f;
     public Ease ease = Ease.OutBack;
 
+    public ParticleSystem VFXDeath;
+
     [SerializeField] private BounceHelper _bounceHelper;
 
     public bool invincible = false;
@@ -104,6 +106,10 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = false;
         Endscreen.SetActive(true);
         animatorManager.Play(type);
+        if (VFXDeath != null)
+        {
+            VFXDeath.Play();
+        }
     }
 
     public void StartRun()
